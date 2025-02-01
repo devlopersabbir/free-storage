@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Drive from "./drive";
 
 export default function HomePage() {

@@ -1,5 +1,11 @@
 import type { FileItem as FileItemType } from "~/constants";
-import { Folder, FileText, Image, Video, Music } from "lucide-react";
+import {
+  Folder,
+  FileText,
+  Image as ImageIcon,
+  Video,
+  Music,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 interface FileItemProps {
@@ -24,7 +30,7 @@ export function FileItem({ file, onFolderClick, index }: FileItemProps) {
       case "document":
         return <FileText className="text-blue-400" />;
       case "image":
-        return <Image className="text-green-400" />;
+        return <ImageIcon className="text-green-400" />;
       case "video":
         return <Video className="text-red-400" />;
       case "audio":
@@ -52,7 +58,7 @@ export function FileItem({ file, onFolderClick, index }: FileItemProps) {
         <span className="truncate">{file.name}</span>
       </td>
       <td className="hidden px-4 py-2 md:table-cell">{file.type}</td>
-      <td className="hidden px-4 py-2 md:table-cell">{file.size || "-"}</td>
+      <td className="hidden px-4 py-2 md:table-cell">{file.size ?? "-"}</td>
       <td className="hidden px-4 py-2 md:table-cell">{file.modified}</td>
     </motion.tr>
   );
